@@ -1,4 +1,4 @@
-# CamTrol - CogVideo version / any video model version
+# CamTrol - CogVideo version / Diffusers version
 
 This is a diffusers-based implementation of [CamTrol: Training-free Camera Control for Video Generation](https://lifedecoder.github.io/CamTrol/). 
 
