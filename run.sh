@@ -15,7 +15,7 @@ CUDA_VISIBLE_DEVICES=0 python latent.py --index 0 --warp_path ""
 # generate video
 # here use CogVideoX, example of using svd is in generate_svd.py
 
-# before we generate video, there's one more important thing to do.
+# before we generate video, there's one important thing to do.
 # because video models in diffusers only support generating from step T (nearly pure Gaussian noise),
 # we need to do some minor revisions to the source code of video models in diffusers to allow it generate from the middle steps.
 # but don't worry, there're only few changes.
@@ -30,7 +30,7 @@ CUDA_VISIBLE_DEVICES=0 python latent.py --index 0 --warp_path ""
 # 3. change the loop "for i, t in enumerate(timesteps):" into "for i, t in enumerate(timesteps[start_index:])".
 # you can refer to revised_svd.py for these changes.
 
-
+# generate video using modified model
 CUDA_VISIBLE_DEVICES=0 python cli_demo.py --output_path "" --latents "" --prompt ""
 
 # if you have any questions you could also refer to another repository
