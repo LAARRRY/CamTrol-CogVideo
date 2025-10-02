@@ -22,13 +22,13 @@ CUDA_VISIBLE_DEVICES=0 python latent.py --index 0 --warp_path ""
 # you need to be aware that if you reinstall the diffusers, these changes will be removed.
 # revise the source code in diffusers is temporary but very quick!
 
-# here's the steps: (Take SVD as example)
-# find the source code of StableVideoDiffusionPipeline. for example your_envs_path/lib/python3.x/site_package/diffusers/src/diffusers/pipelines/cogvideo/pipeline_stable_video_diffusion.py. (or ctrl+click)
+# here's the steps: (Take CogVideo as example)
+# find the source code of CogVideoXPipeline. for example your_envs_path/lib/python3.x/site_package/diffusers/src/diffusers/pipelines/cogvideo/pipeline_cogvideox.py. (or ctrl+click)
 # find the __call__ of this class, and do 3 revisions:
 # 1. add an input param: start_index: Optional[int]=None to the function.
 # 2. add an if: "if latents is None:" before "latents = self.prepare_latents". 
 # 3. change the loop "for i, t in enumerate(timesteps):" into "for i, t in enumerate(timesteps[start_index:])".
-# you can refer to revised_svd.py for these changes.
+# you can refer to revised_cog.py for these changes.
 
 # generate video using modified model
 CUDA_VISIBLE_DEVICES=0 python cli_demo.py --output_path "" --latents "" --prompt ""
